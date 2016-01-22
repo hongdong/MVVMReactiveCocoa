@@ -9,9 +9,7 @@
 #import "MRCAppDelegate.h"
 #import "MRCViewModelServicesImpl.h"
 #import "MRCLoginViewModel.h"
-#import "MRCLoginViewController.h"
 #import "MRCHomepageViewModel.h"
-#import "MRCHomepageViewController.h"
 #import "MRCNavigationControllerStack.h"
 #import "MRCNavigationController.h"
 #import <Appirater/Appirater.h>
@@ -51,7 +49,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.services resetRootViewModel:[self createInitialViewModel]];
     [self.window makeKeyAndVisible];
-
     [self configureAppearance];
     
     // Save the application version info.

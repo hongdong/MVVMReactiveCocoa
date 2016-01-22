@@ -1,9 +1,9 @@
 PODS:
   - Appirater (2.0.5)
-  - AsyncDisplayKit (1.9.4):
-    - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.4)
-  - AsyncDisplayKit/ASDealloc2MainObject (1.9.4)
-  - Bugtags (1.1.6)
+  - AsyncDisplayKit (1.9.5):
+    - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.5)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.5)
+  - Bugtags (1.1.7)
   - DZNEmptyDataSet (1.5.2)
   - FMDB (2.6):
     - FMDB/standard (= 2.6)
@@ -83,8 +83,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
-  AsyncDisplayKit: 0932ff6f78364130a195039ab9a1c2ff63adc665
-  Bugtags: a3dcf9fc5ce4ff1ad52c223b9b7e5124ac179b21
+  AsyncDisplayKit: 9c55f1aadf4edc3eab9e27812171f500c13882c7
+  Bugtags: 5522fa54c5a4db1d45a3fff3dd9def69e7172ee1
   DZNEmptyDataSet: 741da409081a4bf707c949c964623a6ad1799772
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
@@ -104,4 +104,4 @@ SPEC CHECKSUMS:
   WebViewJavascriptBridge: e7b6669bebfc4f151daa0fdec3c8c24c8dc3a24e
   WXTabBarController: 28969aa166ad52ec1d5cde314117fc56874f3a75
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
