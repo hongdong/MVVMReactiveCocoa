@@ -96,7 +96,7 @@
     RAC(self.viewModel, password) = self.passwordTextField.rac_textSignal;
     //登入Command 是否正在执行的信号
     [[RACSignal
-      	merge:@[ self.viewModel.loginCommand.executing, self.viewModel.browserLoginCommand.executing ]]
+      	merge:@[self.viewModel.loginCommand.executing, self.viewModel.browserLoginCommand.executing ]]
     	subscribeNext:^(NSNumber *executing) {
             @strongify(self)
             if (executing.boolValue) {
@@ -107,7 +107,7 @@
             }
         }];
     
-    [[RACSignal merge:@[ self.viewModel.loginCommand.errors, self.viewModel.browserLoginCommand.errors ]] subscribeNext:^(NSError *error) {
+    [[RACSignal merge:@[self.viewModel.loginCommand.errors, self.viewModel.browserLoginCommand.errors]] subscribeNext:^(NSError *error) {
         @strongify(self)
         if ([error.domain isEqual:OCTClientErrorDomain] && error.code == OCTClientErrorAuthenticationFailed) {
             MRCError(@"Incorrect username or password");
@@ -136,7 +136,7 @@
         }
     }];
     
-    RAC(self.loginButton, enabled) = self.viewModel.validLoginSignal;
+    self.loginButton.rac_command = self.viewModel.loginCommand;
     
     [[self.loginButton
         rac_signalForControlEvents:UIControlEventTouchUpInside]

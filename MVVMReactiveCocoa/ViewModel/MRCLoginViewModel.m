@@ -58,14 +58,15 @@
     };
     
     [OCTClient setClientID:MRC_CLIENT_ID clientSecret:MRC_CLIENT_SECRET];
-    
-    self.loginCommand = [[RACCommand alloc] initWithSignalBlock:^(NSString *oneTimePassword) {
-    	@strongify(self)
+
+    self.loginCommand = [[RACCommand alloc] initWithEnabled:self.validLoginSignal signalBlock:^(NSString *oneTimePassword) {
+        @strongify(self)
         OCTUser *user = [OCTUser userWithRawLogin:self.username server:OCTServer.dotComServer];
         return [[OCTClient
-        	signInAsUser:user password:self.password oneTimePassword:oneTimePassword scopes:OCTClientAuthorizationScopesUser | OCTClientAuthorizationScopesRepository note:nil noteURL:nil fingerprint:nil]
-            doNext:doNext];
+                 signInAsUser:user password:self.password oneTimePassword:oneTimePassword scopes:OCTClientAuthorizationScopesUser | OCTClientAuthorizationScopesRepository note:nil noteURL:nil fingerprint:nil]
+                doNext:doNext];
     }];
+
 
     self.browserLoginCommand = [[RACCommand alloc] initWithSignalBlock:^(id input) {
         return [[OCTClient
