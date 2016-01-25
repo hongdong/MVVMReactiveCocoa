@@ -59,11 +59,15 @@
     
     [OCTClient setClientID:MRC_CLIENT_ID clientSecret:MRC_CLIENT_SECRET];
 
-    self.loginCommand = [[RACCommand alloc] initWithEnabled:self.validLoginSignal signalBlock:^(UIButton *loginBtn) {
+    self.loginCommand = [[RACCommand alloc] initWithEnabled:self.validLoginSignal signalBlock:^(id input) {
         @strongify(self)
         OCTUser *user = [OCTUser userWithRawLogin:self.username server:OCTServer.dotComServer];
+        NSString *oneTimePassword = nil;
+        if ([input isKindOfClass:[NSString class]]) {
+            oneTimePassword = input;
+        }
         return [[OCTClient
-                 signInAsUser:user password:self.password oneTimePassword:nil scopes:OCTClientAuthorizationScopesUser | OCTClientAuthorizationScopesRepository note:nil noteURL:nil fingerprint:nil]
+                 signInAsUser:user password:self.password oneTimePassword:oneTimePassword scopes:OCTClientAuthorizationScopesUser | OCTClientAuthorizationScopesRepository note:nil noteURL:nil fingerprint:nil]
                 doNext:doNext];
     }];
 
