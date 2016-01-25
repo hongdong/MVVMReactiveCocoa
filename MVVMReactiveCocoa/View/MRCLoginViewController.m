@@ -94,7 +94,7 @@
     
     RAC(self.viewModel, username) = self.usernameTextField.rac_textSignal;
     RAC(self.viewModel, password) = self.passwordTextField.rac_textSignal;
-    
+    //登入Command 是否正在执行的信号
     [[RACSignal
       	merge:@[ self.viewModel.loginCommand.executing, self.viewModel.browserLoginCommand.executing ]]
     	subscribeNext:^(NSNumber *executing) {
