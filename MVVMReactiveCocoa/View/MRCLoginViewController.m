@@ -138,13 +138,6 @@
     
     self.loginButton.rac_command = self.viewModel.loginCommand;
     
-    [[self.loginButton
-        rac_signalForControlEvents:UIControlEventTouchUpInside]
-        subscribeNext:^(id x) {
-            @strongify(self)
-            [self.viewModel.loginCommand execute:nil];
-        }];
-    
     [[self.browserLoginButton
         rac_signalForControlEvents:UIControlEventTouchUpInside]
         subscribeNext:^(id x) {
